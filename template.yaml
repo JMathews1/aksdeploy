@@ -38,7 +38,7 @@ spec:
   steps:
     - id: deployCluster
       name: Deploy AKS Cluster
-      action: your.custom.action.azure.deployCluster
+      action: aks:deploy
       input:
         clusterName: '{{ parameters.clusterName }}'
         region: '{{ parameters.region }}'
