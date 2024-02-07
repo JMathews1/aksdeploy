@@ -1,0 +1,46 @@
+apiVersion: scaffolder.backstage.io/v1beta3
+kind: Template
+metadata:
+  name: aks-deploy-template
+  title: Deploy AKS 
+  description: Deploy Aks cluster
+  tags:
+    - resources
+    - AKS
+spec:
+  owner: jamesm553@gmail.com
+  type: resource
+  parameters:
+    - title: Cluster Details
+      required:
+        - clusterName
+        - region
+        - nodeSize
+        - nodeCount
+      properties:
+        clusterName:
+          type: string
+          title: Cluster Name
+          description: "Unique name for the AKS cluster"
+        region:
+          type: string
+          title: Azure Region
+          description: "Azure region where the cluster will be deployed"
+        nodeSize:
+          type: string
+          title: Node Size
+          description: "Size of the VMs for the cluster nodes"
+        nodeCount:
+          type: integer
+          title: Node Count
+          description: "Number of nodes in the AKS cluster"
+
+  steps:
+    - id: deployCluster
+      name: Deploy AKS Cluster
+      action: your.custom.action.azure.deployCluster
+      input:
+        clusterName: '{{ parameters.clusterName }}'
+        region: '{{ parameters.region }}'
+        nodeSize: '{{ parameters.nodeSize }}'
+        nodeCount: '{{ parameters.nodeCount }}'
