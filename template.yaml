@@ -6,7 +6,7 @@ metadata:
   description: Deploy Aks cluster
   tags:
     - resources
-    - AKS
+    - aks
 spec:
   owner: jamesm553@gmail.com
   type: resource
