@@ -16,6 +16,7 @@ spec:
         - clusterName
         - region
         - nodeSize
+        - nodeCount
       properties:
         clusterName:
           type: string
@@ -29,12 +30,17 @@ spec:
           type: string
           title: Node Size
           description: "Size of the VMs for the cluster nodes"
+        nodeCount:
+          type: string
+          title: Node Count
+          description: "nodecount "
 
   steps:
     - id: deployCluster
       name: Deploy AKS Cluster
       action: aks:deploy
-      values:
-        clusterName: '{{ parameters.clusterName }}'
-        region: '{{ parameters.region }}'
-        nodeSize: '{{ parameters.nodeSize }}'
+      input:
+        clusterName: {{ parameters.clusterName }}
+        region: {{ parameters.region }}
+        nodeSize: {{ parameters.nodeSize }}
+        nodeCount: {{ parameters.nodeCount}}
