@@ -16,7 +16,7 @@ spec:
         - clusterName
         - region
         - nodeSize
-        - nodeCount
+        # - nodeCount
       properties:
         clusterName:
           type: string
@@ -30,10 +30,10 @@ spec:
           type: string
           title: Node Size
           description: "Size of the VMs for the cluster nodes"
-        nodeCount:
-          type: string
-          title: Node Count
-          description: "nodecount "
+        # nodeCount:
+        #   type: string
+        #   title: Node Count
+        #   description: "nodecount "
 
   steps:
     - id: deployCluster
@@ -43,4 +43,4 @@ spec:
         clusterName: {{ parameters.clusterName }}
         region: {{ parameters.region }}
         nodeSize: {{ parameters.nodeSize }}
-        nodeCount: {{ parameters.nodeCount}}
+        # nodeCount: {{ parameters.nodeCount}}
