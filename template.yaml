@@ -16,7 +16,6 @@ spec:
         - clusterName
         - region
         - nodeSize
-        - nodeCount
       properties:
         clusterName:
           type: string
@@ -30,10 +29,6 @@ spec:
           type: string
           title: Node Size
           description: "Size of the VMs for the cluster nodes"
-        nodeCount:
-          type: integer
-          title: Node Count
-          description: "Number of nodes in the AKS cluster"
 
   steps:
     - id: deployCluster
