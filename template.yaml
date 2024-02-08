@@ -38,4 +38,3 @@ spec:
         clusterName: '{{ parameters.clusterName }}'
         region: '{{ parameters.region }}'
         nodeSize: '{{ parameters.nodeSize }}'
-        nodeCount: '{{ parameters.nodeCount }}'
