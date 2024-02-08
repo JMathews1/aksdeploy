@@ -34,7 +34,7 @@ spec:
     - id: deployCluster
       name: Deploy AKS Cluster
       action: aks:deploy
-      input:
+      values:
         clusterName: '{{ parameters.clusterName }}'
         region: '{{ parameters.region }}'
         nodeSize: '{{ parameters.nodeSize }}'
