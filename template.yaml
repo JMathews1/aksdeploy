@@ -40,7 +40,7 @@ spec:
       name: Deploy AKS Cluster
       action: aks:deploy
       input:
-        clusterName: {{ parameters.clusterName }}
-        region: {{ parameters.region }}
-        nodeSize: {{ parameters.nodeSize }}
+        clusterName: ${{ parameters.clusterName }}
+        region: ${{ parameters.region }}
+        nodeSize: ${{ parameters.nodeSize }}
         # nodeCount: {{ parameters.nodeCount}}
