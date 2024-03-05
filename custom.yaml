@@ -57,13 +57,13 @@ spec:
     #     url: ./content
     #     values:
     #       name: ${{ parameters.name }}
-    - id: publish
-      name: Publish
-      action: publish:github
-      input:
-        allowedHosts: ['github.com']
-        description: This is ${{ parameters.name }}
-        repoUrl: ${{ parameters.repoUrl }}
+    # - id: publish
+    #   name: Publish
+    #   action: publish:github
+    #   input:
+    #     allowedHosts: ['github.com']
+    #     description: This is ${{ parameters.name }}
+    #     repoUrl: ${{ parameters.repoUrl }}
     - id: github-action
       name: Trigger GitHub Action
       action: github:actions:dispatch
