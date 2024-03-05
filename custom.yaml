@@ -50,13 +50,13 @@ spec:
             - apply
             - destroy
   steps:
-    - id: fetch-base
-      name: Fetch Base
-      action: fetch:template
-      input:
-        url: ./content
-        values:
-          name: ${{ parameters.name }}
+    # - id: fetch-base
+    #   name: Fetch Base
+    #   action: fetch:template
+    #   input:
+    #     url: ./content
+    #     values:
+    #       name: ${{ parameters.name }}
     - id: publish
       name: Publish
       action: publish:github
