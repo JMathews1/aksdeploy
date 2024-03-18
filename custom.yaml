@@ -2,34 +2,48 @@ apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
   name: github-custom
-  title: github custom
-  description: custom github
+  title: "GitHub Custom Action"
+  description: "Trigger a custom GitHub action."
 spec:
   owner: user:guest
   type: service
   parameters:
-    - title: Application and Repository Configuration
+    - title: GitHub Workflow Configuration
       required:
-        - name
-        - repoUrl
+        - repoOwner
+        - repoName
+        - workflowId
+        - githubToken
+        - ref
       properties:
-        name:
-          title: App Name
+        repoOwner:
+          title: "Repository Owner"
           type: string
-          description: "Unique name for your app"
-          ui:autofocus: true
-        repoUrl:
-          title: Repository Location
+          description: "The owner of the GitHub repository."
+        repoName:
+          title: "Repository Name"
           type: string
-          ui:field: RepoUrlPicker
-          ui:options:
-            allowedHosts:
-              - github.com
+          description: "The name of the GitHub repository."
+        workflowId:
+          title: "Workflow ID or Filename"
+          type: string
+          description: "The ID or filename of the GitHub Actions workflow."
+        githubToken:
+          title: "GitHub Token"
+          type: string
+          description: "A GitHub token with permissions to trigger workflows."
+          ui:widget: "password"
+        ref:
+          title: "Branch or Tag"
+          type: string
+          description: "The name of the branch or tag to trigger the workflow on."
   steps:
     - id: custom-github-action
-      name: Custom GitHub Action
+      name: "Trigger GitHub Action"
       action: custom:github
       input:
-        # Input parameters for your custom action
-        someParameter: "Some value"
-        anotherParameter: ${{ parameters.name }}
+        repoOwner: ${{ parameters.repoOwner }}
+        repoName: ${{ parameters.repoName }}
+        workflowId: ${{ parameters.workflowId }}
+        githubToken: ${{ parameters.githubToken }}
+        ref: ${{ parameters.ref }}
