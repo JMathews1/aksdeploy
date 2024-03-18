@@ -12,6 +12,7 @@ spec:
       required:
         - repoOwner
         - repoName
+        - newRepoName # Add this for the new repository name
         - workflowId
         - githubToken
         - ref
@@ -37,13 +38,19 @@ spec:
           title: "Branch or Tag"
           type: string
           description: "The name of the branch or tag to trigger the workflow on."
+        newRepoName: 
+          title: "New Repository Name"
+          type: string
+          description: "The name of the new GitHub repository to create."
   steps:
     - id: custom-github-action
       name: "Trigger GitHub Action"
       action: custom:github
       input:
         repoOwner: ${{ parameters.repoOwner }}
+        newRepoName: ${{ parameters.newRepoName }} 
         repoName: ${{ parameters.repoName }}
         workflowId: ${{ parameters.workflowId }}
         githubToken: ${{ parameters.githubToken }}
         ref: ${{ parameters.ref }}
+
