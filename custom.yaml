@@ -1,9 +1,9 @@
 apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
-  name: aks-cluster
-  title: Node.js App on Azure AKS Cluster
-  description: Deploy a Node.js App on Azure AKS Cluster using Terraform
+  name: github-custom
+  title: github custom
+  description: custom github
 spec:
   owner: user:guest
   type: service
