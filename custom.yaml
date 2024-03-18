@@ -33,3 +33,4 @@ spec:
         # Input parameters for your custom action
         someParameter: "Some value"
         anotherParameter: ${{ parameters.name }}
+/ 
